@@ -24,6 +24,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// Publication filtering
+const filterBtns = document.querySelectorAll('.filter-btn');
+const publicationCards = document.querySelectorAll('.publication-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Remove active class from all buttons
+    filterBtns.forEach(b => b.classList.remove('active'));
+    // Add active class to clicked button
+    btn.classList.add('active');
+    
+    const filterValue = btn.getAttribute('data-filter');
+    
+    // Filter publications
+    publicationCards.forEach(card => {
+      if (filterValue === 'all' || card.getAttribute('data-filter') === filterValue) {
+        card.style.display = 'block';
+        card.style.animation = 'fadeIn 0.3s ease';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Set 'all' as active by default
+document.querySelector('[data-filter="all"]')?.classList.add('active');
+
 // Contact form handling
 const contactForm = document.getElementById('contactForm');
 
@@ -58,6 +86,6 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all cards
-document.querySelectorAll('.stat, .skill-category, .publication-card, .info-item').forEach(el => {
+document.querySelectorAll('.stat, .skill-category, .publication-card, .info-item, .achievement-card').forEach(el => {
   observer.observe(el);
 });
