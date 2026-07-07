@@ -622,6 +622,15 @@ section {
 }
 
 /* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -654,7 +663,198 @@ section {
   }
 }
 
-/* Responsive */
+.research-focus {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.85;
+  font-style: italic;
+}
+
+.pub-filter {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.95rem;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--white);
+}
+
+.category-title {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.publications-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.pub-meta {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.pub-type {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.journal-badge {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.conf-badge {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.book-badge {
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+.publication-card h3 {
+  font-size: 1.1rem;
+  color: var(--text);
+  margin: 1rem 0 0.5rem 0;
+  line-height: 1.5;
+}
+
+.authors {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.doi {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 0.5rem;
+}
+
+.doi a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.doi a:hover {
+  text-decoration: underline;
+}
+
+/* Achievements Section */
+.achievements {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--white);
+}
+
+.achievements .section-title {
+  color: var(--white);
+}
+
+.achievements .section-title::after {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.achievement-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.achievement-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.achievement-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.achievement-list {
+  list-style: none;
+  text-align: left;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.achievement-list li {
+  margin-bottom: 0.8rem;
+}
+
+.achievement-list strong {
+  color: #ffd700;
+}
+
+.id-links {
+  text-align: left;
+}
+
+.id-links p {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -720,5 +920,26 @@ section {
   .nav-links a {
     padding: 1rem 0;
     border-bottom: 1px solid var(--border);
+  }
+
+  .pub-filter {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    width: 100%;
+  }
+
+  .publications-list {
+    grid-template-columns: 1fr;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievement-card {
+    padding: 1.5rem;
   }
 }
